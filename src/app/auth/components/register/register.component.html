@@ -1,0 +1,15 @@
+<div class="login-page">
+    <div class="form" [ngClass]="{'blue-register' : clientType === 'blue', 'green-register' : clientType === 'green' }">
+    <form class="login-form">
+      <input *ngIf="clientType === 'yellow'" class="input-fields" type="text" placeholder="First name" />
+      <input *ngIf="clientType === 'yellow'" class="input-fields" type="text" placeholder="Last name" />
+      <input *ngIf="clientType === 'yellow'" class="input-fields" type="text" placeholder="Country" />
+      <input class="input-fields" type="text" placeholder="Username" />
+      <input *ngIf="clientType !== 'green'" class="input-fields" type="text" placeholder="Email address"/>
+      <input class="input-fields" type="password" placeholder="Password" />
+      <input class="input-fields" type="password" placeholder="Confirm password" />
+            <button loginColor [buttonBackgroundColor]="clientType">Create account</button>
+          <p class="message">Already registered? <a [routerLink]="['/login']" >sign in</a></p>
+      </form>
+    </div>
+</div>

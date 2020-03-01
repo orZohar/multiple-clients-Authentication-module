@@ -1,0 +1,25 @@
+<div class="title" loginColor [titleColor]="clientType">Welcome to {{clientType}} login page</div>
+<div class="login-page">
+    <div class="form" [ngClass]="{'blue-login' : clientType === 'blue', 'green-login' : clientType === 'green' }">
+        <form class="login-form" >
+            <input class="input-fields" type="text" placeholder="Username" />
+            <input class="input-fields" type="password" placeholder="Password" />
+            <captcha *ngIf="clientType === 'yellow'"></captcha>
+            <remember-me *ngIf="clientType !== 'blue'"></remember-me>
+            <button loginColor [buttonBackgroundColor]="clientType" style="margin-bottom:20px">login</button>
+            <p class="message">Not registered? <a [routerLink]="['/register']"> Create an account</a></p>
+            <span>
+            <p *ngIf="clientType !== 'blue'" class="message">Forgot your password?<a [routerLink]="['/change-restore-password']"
+                [queryParams]="{isChange:  false}"> Restore password</a></p>
+
+            <p *ngIf="clientType !== 'blue'" class="message"><a [routerLink]="['/change-restore-password']"
+                 [queryParams]="{isChange: true}"> Change password</a></p>
+
+            <p *ngIf="clientType === 'blue'" class="message"><a [routerLink]="['/change-restore-password']"
+                 [queryParams]="{isChangeAndRestoreSeperate: isChangeAndRestoreSeperate }">Change/Restore password</a></p>
+                 <p *ngIf="clientType === 'green'"  class="message"><a [routerLink]="['/help']"
+                    >Help</a></p>
+            </span>
+        </form>
+    </div>
+</div>
