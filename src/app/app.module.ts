@@ -23,7 +23,6 @@ export function initializeApp1(configService: ConfigService) {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule,
     RouterModule,
     HttpClientModule,
     RecaptchaModule,
